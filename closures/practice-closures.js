@@ -10,11 +10,21 @@
   
   //CODE HERE
 
+  function myFunc() {
+    let myStr = 'super secret string';
+
+    function getSecretString() {
+      return myStr;
+    }
+
+    return getSecretString;
+  }
   
   //Now create a variable called secretString. Its value should be the invocation of myFunc.
 
   //CODE HERE
-  
+
+  let secretString = myFunc()  
   
   ////////////PROBLEM 2////////////
 
@@ -30,27 +40,51 @@
   
   //CODE HERE
 
+  function lightSwitch() {
+    let isTheLightOn = false;
+
+    function flipTheSwitch() {
+      // if(isTheLightOn === false) {
+      //   isTheLightOn = false;
+        
+      //   return 'The light is off'
+      // } else if (isTheLightOn === true){
+      //   isTheLightOn = true;
+
+      //   return 'The light is on'
+      // }
+
+      isTheLightOn = !isTheLightOn;
+
+      return (isTheLightOn ? 'The light is on' : 'The light is off')
+    }
+
+    return flipTheSwitch;
+  }
   
   //Create a variable called kitchenSwitch whose value is the invocation of lightSwitch.
   
   //CODE HERE
 
+  let kitchenSwitch = lightSwitch()
   
   //Invoke kitchenSwitch.
 
   //CODE HERE
-  
+
+  kitchenSwitch()  
   
   //Create a variable called bathroomSwitch whose value is the invocation of lightSwitch. 
 
   //CODE HERE
-  
+
+  let bathroomSwitch = lightSwitch()  
   
   //Invoke bathroomSwitch twice.
   
   //CODE HERE
 
-  
+  bathroomSwitch()
   
   ////////////PROBLEM 3////////////
 
@@ -65,6 +99,24 @@
 
   //CODE HERE
 
+  function plantTracker() {
+    let plant = 'fern';
+    let height = 12;
+
+    return {
+      readInfo: function() {
+        return `This is a ${plant} plant that is ${height} inches tall.`
+      },
+      waterPlant: function() {
+        height += 1;
+        return height
+      },
+      prunePlant: function() {
+        height -= 1;
+        return height
+      }
+    }
+  }
 
   ////////////PROBLEM 4////////////
 
@@ -80,6 +132,25 @@
 
   //CODE HERE
 
+  function inventory() {
+    let products = [];
+
+    return {
+      readProducts: function() {
+        return products
+      },
+      addToProducts: function(str) {
+        products.push(str)
+      },
+      deleteFromProducts: function(str) {
+        for(let i = 0; i < products.length; i++) {
+          if(products[i] === str) {
+            products.splice([i], 1)
+          }
+      }
+    }
+  }
+}
 
   /*
     Create a variable called 'shoes' whose value is the invocation of inventory.
@@ -87,6 +158,7 @@
 
   //CODE HERE
 
+  let shoes = inventory()
 
   /*
     Add an item to your shoes array using the addToProducts function
@@ -94,3 +166,4 @@
 
   //CODE HERE
 
+  shoes.addToProducts('blue shoes')
