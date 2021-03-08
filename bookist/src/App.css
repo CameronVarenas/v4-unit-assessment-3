@@ -43,8 +43,14 @@
 
 .img {
   height: 200px;
+  padding: 25px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.listedBook {
+.listed-book {
   list-style-type: none;
+  background-color: aliceblue;
+  width: 75%;
+  display: flex;
 }

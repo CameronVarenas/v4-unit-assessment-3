@@ -1,20 +1,18 @@
-import {Component} from 'react'
+import React from 'react'
 
-class Shelf extends Component {
-    render() {
-        const shelfData = this.props.shelf
-        const mappedTitles = shelfData.map(book => {
-            console.log()
-            return(
-                <li>
-                    <h5>Your Shelf</h5>
-                    <h5>`{book.title}`</h5>
+function Shelf(props) {
+
+    const mappedTitles = props.shelf.map(shelf => {
+        return (
+            <div>
+                <li className='listed-book'>
+                    <h5>{shelf}</h5>
                 </li>
-            )
-        })
+            </div>
+        )
+    })
 
-        return mappedTitles
-    }
+    return mappedTitles
 }
 
 export default Shelf

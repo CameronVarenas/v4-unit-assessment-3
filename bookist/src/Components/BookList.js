@@ -1,22 +1,19 @@
-import {Component} from 'react'
+import React from 'react'
 
-class List extends Component {
-    render() {
-        const bookData = this.props.books
-        const mappedBooks = bookData.map(book => {
+function BookList(props) {
 
-            return(
-                <li key={book.id} class='listedBook'>
-                    <button onClick={this.props.addToShelf}>
-                        <img src={book.img} alt='book-thumbnail' class='img'/>
-                    </button>
+    const mappedBooks = props.books.map(book => {
+        return (
+            <div>
+                <li key={book.id} className='listed-book'>
+                    <img src={book.img} alt='book-thumbnail' class='img' onClick={() => props.addToShelf(book)}/>
                     <h5>{book.title} by {book.author}</h5>
                 </li>
-            )
-        })
+            </div>
+        );
+    })
 
-        return mappedBooks
-    }
+    return mappedBooks
 }
 
-export default List
+export default BookList
