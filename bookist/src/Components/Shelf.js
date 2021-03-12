@@ -1,18 +1,18 @@
 import React from 'react'
 
 function Shelf(props) {
-
-    const mappedTitles = props.shelf.map(shelf => {
+    console.log(props.shelf)
+    let mappedTitles = props.shelf.map(title => {
         return (
             <div>
                 <li className='listed-book'>
-                    <h5>{shelf}</h5>
+                    <h5>{title}</h5>
                 </li>
             </div>
-        )
+        );
     })
 
-    return mappedTitles
+    return mappedTitles;
 }
 
 export default Shelf

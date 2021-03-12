@@ -23,7 +23,8 @@ class App extends Component {
   }
 
   addToShelf(book) {
-    this.state.shelf.push(book.title)
+    const newShelfArr = [...this.state.shelf, book.title]
+    this.setState({shelf: newShelfArr})
     console.log('click')
     console.log(this.state.shelf)
   }
@@ -35,8 +36,8 @@ class App extends Component {
   }
 
   filterBooks(input) {
-    const filteredBooks = this.state.books.filter(this.books.title == input)
-    this.books = filteredBooks
+    const filteredBooks = this.state.books.filter(this.books.title === input)
+    this.setState({books: filteredBooks})
   }
  
   render() {
@@ -54,7 +55,7 @@ class App extends Component {
           <div>
             <h3>Shelf</h3>
             <button onClick={() => this.clearShelf()}>Clear Shelf</button>
-            <Shelf clearShelf={this.clearShelf} books={this.state.books} shelf={this.state.shelf}/>
+            <Shelf clearShelf={this.clearShelf} shelf={this.state.shelf} books={this.state.books}/>
           </div>
         </section>
       </div>

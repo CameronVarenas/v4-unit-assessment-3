@@ -13,7 +13,7 @@ function BookList(props) {
         );
     })
 
-    return mappedBooks
+    return mappedBooks;
 }
 
 export default BookList
